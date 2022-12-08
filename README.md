@@ -41,25 +41,25 @@
     1. Install package. Run `pip3 install sqlalchemy`
     2. Create a folder for connect database `mkdir settings` in this folder create a file `touch database.py`
     3. ```
-    from sqlalchemy import create_engine
-    from sqlalchemy.ext.declarative import declarative_base
-    from sqlalchemy.orm import sessionmaker
-    SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
-    ALGORITHM = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES = 30
-    SQLALCHEMY_DATABASE_URL = "sqlite:///./twofactor_app.db"
-    engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
-    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-    Base = declarative_base()
+        from sqlalchemy import create_engine
+        from sqlalchemy.ext.declarative import declarative_base
+        from sqlalchemy.orm import sessionmaker
+        SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
+        ALGORITHM = "HS256"
+        ACCESS_TOKEN_EXPIRE_MINUTES = 30
+        SQLALCHEMY_DATABASE_URL = "sqlite:///./twofactor_app.db"
+        engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
+        SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+        Base = declarative_base()
     ```
 
 8. How to create models :-
     1. Create a model file `models.py` in current directory `fastapi_project`
     2. There are a few parts to make this work. The first part is to connect to the database:
     ```
-    engine = create_engine(my_database_connection)
-    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-    Base = declarative_base()
+        engine = create_engine(my_database_connection)
+        SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+        Base = declarative_base()
     ```
     3. Then create models class For Example:
     ```
